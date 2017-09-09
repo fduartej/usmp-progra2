@@ -1,5 +1,8 @@
 package com.example.demo.control;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +19,7 @@ import com.example.demo.model.PersonaRepository;
 public class AddPersonaController {
 
 	@Autowired
-	private PersonaRepository personas;
+	private PersonaRepository personaRepo;
 	
 	@GetMapping("/addPerson")
 	public String loadFormPerson(Model model) {
@@ -27,10 +30,17 @@ public class AddPersonaController {
 	@PostMapping("/addPerson")
 	public String submitPerson(@ModelAttribute Persona persona) {
 		
-		personas.save(persona);
+		personaRepo.save(persona);
 
 		int total= persona.getEdad()+ persona.getIncremento();
 		persona.setIncremento(total);
 		return "result";
+	}
+	
+	@GetMapping("/listPerson")
+	public String list(Map<String,Object> model) {
+		List<Persona> pers=personaRepo.findAll();
+		model.put("pers", pers);
+		return "persList";
 	}
 }

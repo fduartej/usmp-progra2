@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type"
+	 content="text/html; charset=UTF-8"/>
+	<title>Result</title>
+</head>
+<body>
+
+<table border="1">
+	<tr>
+		<th>dni</th>
+		<th>Nombre</th>
+	</tr>
+	<tr th:each="persona : ${pers}">
+		<td th:text="${persona.dni}"></td>
+		<td th:text="${persona.nombre}"></td>
+	</tr>
+</table>
+<a href="/addPerson">Agregar Persona</a><br/>
+<a href="/">Menu</a>
+
+
+</body>
+</html>
