@@ -1,11 +1,31 @@
 package com.example.demo.model;
 
-public class Persona {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
+@Entity
+@Table(name = "persona")
+public class Persona {
+	
+	@Id
+	private long id;
+	
 	private String dni;
 	private String nombre;
 	private int edad;
+	
+	@Transient
 	private int incremento;
+	
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getDni() {
 		return dni;
 	}
