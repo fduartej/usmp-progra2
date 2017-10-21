@@ -11,7 +11,7 @@
 <form action="#" th:action="@{/addPerson}" th:object="${persona}" method="post">
 	<table>
 		<tr>
-			<td>DNI:</td>
+			<td><p th:text="#{dni}"/></td>
 			<td><input type="text" th:field="*{dni}"/></td>
 			<td th:if="${#fields.hasErrors('dni')}"  th:errors="*{dni}">Ingrese DNI</td>
 		</tr>
