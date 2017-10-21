@@ -9,15 +9,37 @@
 
 <h1>Agregar Persona</h1>
 <form action="#" th:action="@{/addPerson}" th:object="${persona}" method="post">
-	<p>DNI: <input type="text" th:field="*{dni}"/></p>
-	<p>Nombre: <input type="text" th:field="*{nombre}"/></p>
-	<p>Edad: <input type="text" th:field="*{edad}"/></p>
-	<p>Incremento: <input type="text" th:field="*{incremento}"/></p>
-	<p>
-		<input type="submit" value="enviar"/>
-		<input type="reset" value="cancelar"/>
-	</p>
+	<table>
+		<tr>
+			<td>DNI:</td>
+			<td><input type="text" th:field="*{dni}"/></td>
+			<td th:if="${#fields.hasErrors('dni')}"  th:errors="*{dni}">Ingrese DNI</td>
+		</tr>
+		<tr>
+			<td>Nombre:</td>
+			<td><input type="text" th:field="*{nombre}"/></td>
+			<td th:if="${#fields.hasErrors('nombre')}"  th:errors="*{nombre}" 
+			 style="color: #ff0000;">Ingrese Nombre</td>
+		</tr>
+		<tr>
+			<td>Edad:</td>
+			<td><input type="text" th:field="*{edad}"/></td>
+			<td th:if="${#fields.hasErrors('edad')}"  th:errors="*{edad}">Ingrese Edad</td>
+		</tr>
+		<tr>
+			<td>Incremento:</td>
+			<td><input type="text" th:field="*{incremento}"/></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<input type="submit" value="enviar"/>
+				<input type="reset" value="cancelar"/>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
 </form>
-
 </body>
 </html>
