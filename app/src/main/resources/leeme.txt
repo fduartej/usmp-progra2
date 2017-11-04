@@ -1,0 +1,4 @@
+Defecto del browser
+http://localhost:8080/addPerson
+http://localhost:8080/addPerson?lang=en_US
+http://localhost:8080/addPerson?lang=es
